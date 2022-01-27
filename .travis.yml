@@ -1,0 +1,27 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - "12"
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack:
+  email:
+    recipients:
+      - oscar@platzi.com
+    on_success: always
+    on_failure: always
+deploy:
+  provide: heroku
+  skip-cleaning: true
+  keep-history: true
+  api_key: 2aff35d6-84c2-4b55-a740-10be4f8f1e83
+  app: platzi-store-backend-eduardxm
+  on:
+    repo: eduardxmartinez/platzi-store-backend
